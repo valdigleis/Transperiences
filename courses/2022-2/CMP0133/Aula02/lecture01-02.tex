@@ -271,7 +271,7 @@
 		\end{alertblock}
 	\end{frame}
 
-	\begin{frame}{Teorema --- Diferença Simátrica}
+	\begin{frame}{Teoremas (i) --- Diferença Simátrica}
 		\begin{teo}
 			Sejam $A$ e $B$ subconjuntos quaisquer de um determinado universo $\mathbb{U}$, tem-se que $A \ominus B = (A \cup B) \cap \overline{(A \cap B)}$.
 		\end{teo}
@@ -279,8 +279,113 @@
 		\begin{col}
 			Sejam $A$ e $B$ subconjuntos quaisquer de um determinado universo $\mathbb{U}$, tem-se que $A \ominus B = (A \cup B) - (A \cap B)$.
 		\end{col}
+		\pause
+		\begin{teo}
+			Para todo $A$ tem-se que $A \ominus \emptyset = A$.
+		\end{teo}
+		\begin{teo}
+			Para todo $A$ tem-se que $A \ominus \mathbb{U} = \overline{A}$.
+		\end{teo}
+	\end{frame}
+
+	\begin{frame}{Teoremas (ii) --- Diferença Simátrica}
+		\begin{teo}
+			Para todo $A$ tem-se que $A \ominus \overline{A} = \mathbb{U}$.
+		\end{teo}
+		\begin{teo}
+			Para todo $A$ tem-se que $A \ominus A = \emptyset$.
+		\end{teo}
+		\begin{teo}
+			Para todo $A$ e $B$ tem-se que $A \ominus B = B \ominus A$.
+		\end{teo}
+		\begin{teo}
+			Para todo $A, B$ e $C$ tem-se que $(A \ominus B) \ominus C = A \ominus (B \ominus C)$.
+		\end{teo}
+		\begin{teo}
+			Para todo $A$ e $B$ tem-se que $\overline{(A \ominus B)} = (A \cap B) \cup (\overline{A} \cap \overline{B})$.
+		\end{teo}
 	\end{frame}
 	
 	\section{Operações Generalizadas}
+	
+	\begin{frame}{União}
+		\begin{defi}[União generalizada]\label{def:UniaoGeneralizadas}
+			Dado uma família $A$ então a união generalizada dos conjuntos em $A$ corresponde respectivamente a:
+			$$A_\cup = \bigcup_{x \in A} x$$
+		\end{defi}
+		\pause
+		Também é possível encontrar na literatura as formas:
+		\begin{itemize}
+			\item $\displaystyle A_\cup = x_1 \cup \cdots \cup x_n$
+			\item $\displaystyle A_\cup = \bigcup_{i = 1}^n x_i$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Dado a família $A = \{\{2, 4\}, \{-1, 2\}, \{4, 9, 8, -1\}\}$ qual seria o conjunto $A_\cup$?
+			\item Seja $A = \{\{a, b\}, \{a\}, \{b\}, \{c\}\}$ qual seria o conjunto $A_\cup$?
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Interseção}
+		\begin{defi}[Interseção generalizada]\label{def:IntersecaoGeneralizadas}
+			Dado uma família $A$ então a interseção generalizada dos conjuntos em $A$ corresponde respectivamente a:
+			$$A_\cap = \bigcap_{x \in A} x$$
+		\end{defi}
+		\pause
+		Também é possível encontrar na literatura as formas:
+		\begin{itemize}
+			\item $\displaystyle A_\cap = x_1 \cap \cdots \cap x_n$
+			\item $\displaystyle A_\cap = \bigcap_{i = 1}^n x_i$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Seja $D = \{\mathbb{Z}_+, \{0, -1, -2, -3\}, (\mathbb{Z}_- \cup \{0\})\}$, calcule a interseção generalizada de $D$.
+			\item Dado $A = \{\{a, t, c, g\}, \{v, x, a, g, d\}, \{z, b, a, y, g\}, \{g, b, a\}\}$ calcule $A_\cap$.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Partes e Partições}
+	
+	\begin{frame}{Partes ou Potência}
+		\begin{defi}[Conjunto das partes]\label{def:ConjuntoDasPartes}
+			Seja $A$ um conjunto. O conjunto das partes\footnote{Em alguns livros é usado o termo conjunto potência em vez do termo conjunto das partes, nesse caso é usado a notação $2^A$ para denotar tal família de conjuntos.} de $A$, é denotada por $\wp(A)$, e corresponde a seguinte família de conjuntos:
+			$$\wp(A) = \{x \mid x \subseteq A\}$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Seja $A = \{a, b, c\}$ determine o conjunto das partes de $A$.
+			\item Dado o conjunto $X = \{1\}$ determine o conjunto das partes de $X$.
+			\item Esboce o conjunto das partes do conjunto $A = \{\emptyset, \{\emptyset\} \}$.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Partições}
+		\begin{defi}[Partição]\label{def:ParticaoConjuntos}
+			Seja $A$ um conjunto não vazio, uma partição é uma família não vazia de subconjuntos disjuntos de $A$, ou seja, uma família $\{x_i \mid x_i \subseteq A\}$ tal que as seguintes condições são satisfeitas:
+			\begin{itemize}
+				\item[(1)] Para todo $y \in A$ tem-se que existe um único $i$ tal que $y \in x_i$ para algum $x_i \subseteq A$.
+				\item[(2)] Para todo $i$ e todo $j$ sempre que $i \neq j$, então $x_i \cap x_j = \emptyset$.
+			\end{itemize}
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplo}
+		\begin{itemize}
+			\item Construa uma partição para o conjunto $A = \{2, a, i, 4\}$.
+			\item Dado o conjunto $X = \{0, 1, 2, 3, 4, 5\}$ diga se as asserções a seguir são verdadeiras ou falsas e justifique:
+			\begin{itemize}
+				\item $R = \{\{1, 5\}, \{2, 1, 4\}, \{0, 3\}\}$ é uma partição de $X$.
+				\item $S = \{\{1, 5\}, \{0, 4\}, \{3\}\}$ não é uma partição de $X$.
+				\item $T = \{\{0, 5\}, \{1, 3, 4\}, \{2\}\}$ é uma partição de $X$.
+				\item $V = \{\{0, 1\}, \{4, 5\}, \{3, 2\}\}$ não é uma partição
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
 	
 \end{document}
