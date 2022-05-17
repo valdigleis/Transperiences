@@ -1,0 +1,286 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Apresentação do Curso}
+\subtitle{CCMP0133 -- Aula 02}
+\date{16 de Maio de 2022}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Conjuntos e Elementos}
+	
+	\begin{frame}{Conjuntos e Elementos}
+		\begin{defi}[Conjunto]\label{def:Conjuntos}
+			Um \textbf{conjunto} $A$ é uma \textbf{coleção} numa totalidade $M$ de certos \textbf{objetos} $n$ distintos e que satisfazem certas propriedades, tais objetos são chamados de \textbf{elementos} de $A$.
+		\end{defi}
+		\pause
+		\begin{defi}[Notações Básicas]\label{def:NotacaoConjuntos1}
+			As letras maiúsculas do alfabeto latino $A, B, \cdots, M,$ $N, \cdots, Z$ como e sem indexação serão usadas como variáveis para representar conjuntos e as letras minúsculas $a, b, \cdots, m, n, \cdots, z$ como e sem indexação serão usadas como meta-variáveis para representar elementos.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Conjuntos Numéricos}
+		\begin{defi}[Símbolos dos conjuntos numéricos]\label{def:SimbolosConjuntos}
+			O conjunto dos números naturais\footnote{Neste curso os naturais corresponde ao conjunto $\{0, 1, 2, \cdots\}$.}, inteiros, racionais, irracionais, reais e complexos são representados respectivamente por   $\mathbb{N}$, $\mathbb{Z}$,  $\mathbb{Q}$,  $\mathbb{I}$,  $\mathbb{R}$ e  $\mathbb{C}$.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Notação Compacta}
+		\begin{defi}[Notação compactada]\label{def:NotacaoCompacta}
+			Um conjunto $A$ definido por alguma propriedade $\textbf{P}$ é representada na \textbf{forma compacta} como:
+			\begin{equation}
+				A = \{ x \mid \textbf{P}\}
+			\end{equation}
+		\end{defi}
+		\pause
+		Na notação compacta $A = \{ x \mid \textbf{P}\}$:
+		\begin{itemize}
+			\item O símbolo $A$ é chamado de rótulo do conjunto.
+			\item $\{ x \mid \textbf{P}\}$ é a forma estrutural do conjunto.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Relação: Elemento $\times$ Conjunto e Conjunto $\times$ Conjunto}
+		\begin{defi}[Relação de Pertinência]\label{def:Pertinencia}
+			Seja $A$ um conjunto definido sobre um discurso $M$ por uma propriedade $\textbf{P}$ e seja $x$ um elemento do discurso. Se o elemento $x$ possui (ou satisfaz) a propriedade $\textbf{P}$, então é dito que $x$ pertence a $A$, denotado por $x \in A$. Caso $x$ não possui (ou satisfaça) a propriedade $\textbf{P}$, então é dito que $x$ não pertence a $A$, denotado por $x \notin A$.
+		\end{defi}
+		\begin{defi}[Relação de inclusão]\label{def:RelacaoInclusao}
+			Dado dois conjuntos $A$ e $B$ quaisquer, é dito que $A$ é subconjunto de $B$, denotado por $A \subseteq B$, quando todo $x \in A$ é tal que $x \in B$.
+		\end{defi}
+	\end{frame}
+	
+	\begin{frame}{Importante sobre notação compacta}
+		Note que todo subconjunto $A$ de um conjunto $B$ pode ser visto como um conjunto construído sobre os elementos de $B$ que satisfazem uma certa propriedade $\textbf{P}$, isto é, tem-se que todo subconjunto $A$ é um conjunto da seguinte forma:
+		$$A = \{x \mid x \in B \mbox{ e } x \mbox{ satisfaz } \textbf{P}\}$$
+		também é possível encontrar a notação $A = \{x \in B  \mid x \mbox{ satisfaz } \textbf{P}\}$.
+	\end{frame}
+	
+	\begin{frame}{Relação de não inclusão e de igualdade}
+		\begin{defi}[Relação de não inclusão]\label{def:RelacaoNaoInclusao}
+			Dado dois conjuntos $A$ e $B$ quaisquer, é dito que $A$ é não subconjunto de $B$, denotado por $A \not\subseteq B$, quando existe pelo menos um $x \in A$ tal que $x \not\in B$.
+		\end{defi}
+		\begin{defi}[Igualdade de conjuntos]\label{def:IgualdadeConjuntos}
+			Dois conjuntos $A$ e $B$ são iguais, denotado por $A = B$, se e somente se, $A \subseteq B$ e $B \subseteq A$.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Conjuntos Notáveis}
+		\begin{defi}[Conjunto Universo]\label{def:ConjuntoUniverso}
+			O conjunto universo, ou universo do discurso, denotado por $\mathbb{U}$, é um conjunto que possui todos os elementos sobre os quais se ``fala\footnote{O termo fala aqui diz respeito ao ato pensar ou argumentar sobre os objetos.}''.
+		\end{defi}
+		\pause
+		\begin{defi}[Conjunto vazio]\label{def:ConjuntoVazio}
+			O conjunto vazio, denotado por $\emptyset$, corresponde a um conjunto que não possui nenhum elemento.
+		\end{defi}
+	\end{frame}
+
+	\section{Operações Sobre Conjuntos}
+	
+	\begin{frame}{A União}
+		\begin{defi}[União de conjuntos]\label{def:UniaoConjuntos}
+			Sejam $A$ e $B$ dois conjuntos quaisquer, a união de $A$ com $B$, denotada por $A \cup B$, corresponde ao seguinte conjunto.
+			$$A \cup B = \{x \mid x \in A \mbox{ ou } x \in B\}$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Dados os dois conjuntos $A = \{x \in \mathbb{N} \mid x = 2i \mbox{ para algum } i \in \mathbb{N}\}$ e $B = \{x \in \mathbb{N} \mid x = 2j + 1 \mbox{ para algum } j \in \mathbb{N}\}$ tem-se que $A \cup B = \mathbb{N}$.
+			\item Seja $N = \{1, 2, 3, 6\}$ e $L = \{4, 6\}$ tem-se que $N \cup L = \{1, 4, 6, 3, 2\}$.
+			\item Dado $A = \{1, 2, 3\}$ e $B = \{a, b, c\}$ quem seria a $A \cup (B \cup B)$?
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{A interseção}
+		\begin{defi}[Interseção de conjuntos]\label{def:IntersecaoConjuntos}
+			Sejam $A$ e $B$ dois conjuntos quaisquer, a interseção de $A$ com $B$, denotada por $A \cap B$, corresponde ao seguinte conjunto.
+			$$A \cap B = \{x \mid x \in A \mbox{ e } x \in B\}$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Dado $A_1 = \{x \in \mathbb{N} \mid x \mbox{ é múltiplo de } 2\}$ e $A_2 = \{x \in \mathbb{N} \mid x \mbox{ é múltiplo de } 3\}$ tem-se que $A_1 \cap A_2 = \{x \in \mathbb{N} \mid x \mbox{ é múltiplo de } 6\}$.
+			\item Seja $A = \{1, 2, 3\}, B = \{2, 3, 4, 5\}$ e $C = \{5\}$ tem-se que:
+			\begin{itemize}
+				\item[(a)] $A \cap B = \{2, 3\}$.
+				\item[(b)] $A \cap C = \emptyset$.
+				\item[(c)] $B \cap C = \{5\}$.
+				\item[(d)] $B \cap B = \{2, 3, 4, 5\} = B$.
+			\end{itemize}
+			\item Dado $A = \{1, 2, 3\}$ e $B = \{a, b, c\}$ quem seria a $A \cap (B \cap A)$?
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Resultados Importantes (1)}
+		\begin{table}[h]
+			\centering
+			\scriptsize
+			\begin{tabular}{cccc}
+				\hline
+				identificador & None & União & Interseção  \\
+				\hline
+				$p_1$ & Idempotência &  $A \cup A = A$ & $A \cap A = A$  \\
+				$p_2$ & Comutatividade & $A \cup B = B \cup A$ & $A \cap B = B \cap A$ \\
+				$p_3$ & Associatividade & $A \cup (B \cup C) = (A \cup B) \cup C$ & $A \cap (B \cap C) = (A \cap B) \cap C$ \\
+				$p_4$ & Distributividade & $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ & $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$\\
+				$p_5$ & Neutralidade &  $A \cup \emptyset = A$ & $A \cap \mathbb{U} = A$ \\
+				$p_6$ & Absorção & $A \cup \mathbb{U} = \mathbb{U}$ & $A \cap \emptyset = \emptyset$ \\
+				\hline
+			\end{tabular}
+			\caption{Tabela das propriedades das operações de união e interseção.}
+			\label{tab:PropriedadesUniaoIntersecao}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Monotonicidade da união e da interseção}
+		\begin{teo}\label{teo:MonotonicidadeDaUniaoIntersecao}
+			Para quaisquer conjuntos $A$ e $B$ tem-se que:
+			\begin{itemize}
+				\item[i.] $A \subseteq (A \cup B)$.
+				\item[ii.] $(A \cap B) \subseteq A$
+			\end{itemize}
+		\end{teo}
+	\end{frame}
+
+	\begin{frame}{O Estado de Disjunção}
+		\begin{defi}[Conjuntos disjuntos]\label{def:ConjuntosDisjuntos}
+			Dois conjuntos $A$ e $B$ são ditos disjuntos sempre que $A \cap B = \emptyset$.
+		\end{defi}
+		\pause
+		\begin{block}{Exemplo:}
+			Seja $A = \{1, 2, 3\}, B = \{2, 3, 5\}$ e $C = \{5\}$ tem-se que $A$ e $C$ são disjuntos, por outro lado, $A$ e $B$ não são disjuntos entre si, além disso, $B$ e $C$ também não são disjuntos entre si.
+		\end{block}
+	\end{frame}
+
+	\begin{frame}{Operação Complemento}
+		\begin{defi}[Complemento de conjuntos]\label{def:ComplementoConjuntos}
+			Seja $A \subseteq \mathbb{U}$ para algum universo $\mathbb{U}$, o complemento de $A$, denotado por $\overline{A}$, corresponde ao seguinte conjunto:
+			$$\overline{A} = \{x \in \mathbb{U} \mid x \notin A\}$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Dado $P = \{ x \in \mathbb{Z} \mid x = 2k \mbox{ para algum } k \in \mathbb{Z}\}$, tem-se então o seguinte complemento $\overline{P} = \{ x \in \mathbb{Z} \mid x = 2k + 1 \mbox{ para algum } k \in \mathbb{Z}\}$.
+			\item Dado um universo do discurso $\mathbb{U}$ tem-se direto da definição que $\overline{\mathbb{U}} = \emptyset$, e obviamente, $\overline{\emptyset} = \mathbb{U}$.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Resultados Básicos Sobre o Complemento}
+		\begin{tabular}{lc}
+			\textbf{(DM1) Lei De Morgan 1ª forma:} & $\overline{(A \cup B)} = \overline{A} \cap \overline{B}$\\
+			\textbf{(DM2) Lei De Morgan 2ª forma:} & $\overline{(A \cap B)} = \overline{A} \cup \overline{B}$\\
+		\end{tabular}
+		\pause
+		\begin{teo}
+			Dado um conjunto $A$ tem-se que:
+			\begin{itemize}
+				\item[i.] $A \cup \overline{A} = \mathbb{U}$.
+				\item[ii.] $A \cap \overline{A} = \emptyset$.
+				\item[iii.] $\overline{\overline{A}} = A$.
+			\end{itemize}
+		\end{teo}
+	\end{frame}
+
+	\begin{frame}{A Diferenças Clássica de Conjuntos}
+		\begin{defi}[Diferença de conjuntos]\label{def:DiferencaConjuntos}
+			Dado dois conjuntos $A$ e $B$, a diferença de $A$ e $B$, denotado por $A - B$ corresponde ao seguinte conjunto:
+			$$A - B = \{x \in A \mid x \notin B\}$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item Dado os conjuntos $S = \{a, b, c, d\}$ e $T = \{f, b, g, d\}$ tem-se os seguintes conjuntos de diferença: $S - T = \{a, c\}$ e $T - S = \{f, g\}$.
+			\item Dado so conjuntos $\mathbb{Z}$ e $\mathbb{Z}_+^*$ tem-se que $\mathbb{Z} - \mathbb{Z}_+^* = \mathbb{Z}_-$.
+		\end{itemize}
+	\end{frame}
+
+
+	\begin{frame}{Teorema Notável (1)}
+		\begin{teo}
+			Para todo $A$ e $B$ tem-se que:
+			\begin{itemize}
+				\item[i.] $A - B = A \cap \overline{B}$.
+				\item[ii.] Se $B \subset A$, então $A - B = \overline{B}$.
+			\end{itemize}
+		\end{teo}
+	\end{frame}
+
+	\begin{frame}{Teorema Notável (2)}
+		\begin{teo}
+			Sejam $A$ e $B$ subconjuntos de um universo $\mathbb{U}$, tem-se que:
+			\begin{itemize}
+				\item[a.] $A - \emptyset = A$ e $\emptyset - A = \emptyset$.
+				\item[b.] $A - \mathbb{U} = \emptyset$ e $\mathbb{U} - A = \overline{A}$.
+				\item[c.] $A - A = \emptyset$.
+				\item[d.] $A - \overline{A} = A$.
+				\item[e.] $\overline{(A - B)} = \overline{A} \cup B$.
+				\item[f.] $A - B = \overline{B} - \overline{A}$.
+			\end{itemize}
+		\end{teo}
+	\end{frame}
+
+	\begin{frame}{Teorema (3)}
+		\begin{teo}
+			Sejam $A, B$ e $C$ subconjuntos de um universo $\mathbb{U}$, tem-se que:
+			\begin{itemize}
+				\item[a.] $(A - B) - C = A - (B \cup C)$.
+				\item[b.] $A - (B - C) = (A - B) \cup (A \cap C)$.
+				\item[c.] $A \cup (B - C) = (A \cup B) - (C - A)$.
+				\item[d.] $A \cap (B - C) = (A \cap B) - (A \cap C)$.
+				\item[e.] $A - (B \cup C) = (A - B) \cap (A - C)$.
+				\item[f.] $A - (B \cap C) = (A - B) \cup (A - C)$.
+				\item[g.] $(A \cup B) - C = (A - C) \cup (B - C)$.
+				\item[h.] $(A \cap B) - C = (A - C) \cap (B - C)$.
+				\item[i.] $A - (A - B) = A \cap B$.
+				\item[j.] $(A - B) - B = A - B$.
+			\end{itemize}
+		\end{teo}
+	\end{frame}
+	
+	\begin{frame}{Diferença Simétrica}
+		\begin{defi}\label{def:DiferencaSimetricaConjuntos}
+			Dado dois conjuntos $A$ e $B$, a diferença simétrica de $A$ e $B$, denotado por $A \ominus B$, corresponde ao seguinte conjunto:
+			$$A \ominus B = \{x \mid x \in (A - B) \mbox{ ou } x \in (B - A)\}$$
+		\end{defi}
+		\pause
+		\begin{alertblock}{ATENÇÂO}
+			Olhando atentamente a definição anterior é fácil notar que o conjunto da diferença simétrica é exatamente a união das possíveis diferenças entre os conjuntos, isto é, a diferença simétrica corresponde a seguinte igualdade: $A \ominus B = (A - B) \cup (B - A)$.
+		\end{alertblock}
+	\end{frame}
+
+	\begin{frame}{Teorema --- Diferença Simátrica}
+		\begin{teo}
+			Sejam $A$ e $B$ subconjuntos quaisquer de um determinado universo $\mathbb{U}$, tem-se que $A \ominus B = (A \cup B) \cap \overline{(A \cap B)}$.
+		\end{teo}
+		\pause
+		\begin{col}
+			Sejam $A$ e $B$ subconjuntos quaisquer de um determinado universo $\mathbb{U}$, tem-se que $A \ominus B = (A \cup B) - (A \cap B)$.
+		\end{col}
+	\end{frame}
+	
+	\section{Operações Generalizadas}
+	
+\end{document}
