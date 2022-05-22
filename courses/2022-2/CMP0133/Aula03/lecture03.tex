@@ -1,0 +1,123 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Introdução à Lógica Formal}
+\subtitle{CCMP0133 -- Aula 03}
+\date{\today}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Introdução}
+	
+	\begin{frame}{Discussão Básica}
+		\begin{itemize}
+			\item O que é Lógica?\pause
+			\item Quais os objetos de interesse no estudo da lógica?\pause
+			\begin{itemize}
+				\item Argumentos.\pause
+				\item Proposições.\pause
+				\item Predicados.\pause
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Os Argumentos}
+		\begin{defi}[Argumento]\label{def:Argumento}
+			Um argumento é um par formado por dois componentes básicos, a saber:
+			\begin{itemize}
+				\item[(1)] Um conjunto de frases declarativas, em que cada frase é chamada de premissa.
+				\item[(2)] Uma frase declarativa, chamada de conclusão.
+			\end{itemize}
+		\end{defi}
+		\pause
+		\begin{alertblock}{Sobre os argumentos:}
+			\
+			
+			Em geral é usado o símbolo $\therefore$ para separar as premissas da conclusão.
+		\end{alertblock}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		\begin{itemize}
+			\item[a.] 
+			\begin{flushleft}
+				A sopa foi preparada  sem cebola\\ 
+				Toda quarta-feira é servida sopa para as crianças.\\
+				Hoje é quinta-feira.\\
+				$\therefore$\\
+				Ontem as crianças tomaram sopa.
+			\end{flushleft}
+			\pause
+			
+			\
+			
+			\
+			\item[b.] 
+			\begin{flushleft}
+				A lua é feita de queijo\\
+				Os ratos comem queijo\\ 
+				$\therefore$\\
+				O imperador da lua é um rato.
+			\end{flushleft}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Proposições $\times$ Predicados}
+		\begin{defi}[Proposição]\label{def:Proposicao}
+			Uma proposição é uma frase declarativa sobre as propriedades de indivíduos específicos em um discurso.
+		\end{defi}
+		\pause
+		\begin{defi}[Predicados]\label{def:Predicados}
+			Predicados são frase declarativas sobre as propriedades de indivíduos não específicos em um discurso.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos --- Proposições}
+		Todas as frases a seguir são proposições:
+		\begin{itemize}
+			\item[(a)] $3 < 5$.
+			\item[(b)] A lua é feita de queijo.
+			\item[(c)] Albert Einstein era francês.
+			\item[(d)] O Brasil é um país do continente europeu.
+		\end{itemize}
+		\pause		
+		\begin{alertblock}{A frase a seguir é uma proposição: }
+			\
+			
+			Qual é a cor dos olhos de Camila?
+		\end{alertblock}
+	\end{frame}
+
+	\begin{frame}{Exemplos --- Predicados}
+		São exemplos de predicados:
+		\begin{itemize}
+			\item[(a)] Para qualquer $x \in \mathbb{N}$ tem-se que $x < x + 1$.
+			\item[(b)] Para todo $x \in \mathbb{R}$ sempre existem dois números $y_1, y_2 \in \mathbb{R}$ tal que $y_1 < x < y_2$.
+			\item[(c)] Existe algum professor cujo nome da mãe é Maria de Fátima.
+			\item[(d)] Há um estado brasileiro que não tem litoral.
+			\item[(e)] Todo os moradores de Salgueiro são pernambucanos.
+		\end{itemize}
+	\end{frame}
+
+	\section{Conectivos e Quantificadores}
+	\section{Lógica Simbólica}
+	\section{Um pouco de semântica}
+\end{document}
