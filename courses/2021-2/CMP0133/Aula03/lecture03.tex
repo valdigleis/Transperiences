@@ -4,6 +4,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
 
 % Tema usado
 \usetheme{metropolis}
@@ -17,6 +19,7 @@
 \newtheorem{defi}{Definição}
 \newtheorem{teo}{Teorema}
 \newtheorem{col}{Corolário}
+\newtheorem{remark}{Observação}
 
 \begin{document}
 	\maketitle
@@ -118,6 +121,303 @@
 	\end{frame}
 
 	\section{Conectivos e Quantificadores}
+	
+	\begin{frame}{Conectivos}
+		\begin{defi}[Conectivos]\label{def:Conectivos}
+			Conectivos são termos linguísticos que fazem a ligação entre as proposições ou (e) predicados.
+		\end{defi}
+		\pause
+		\begin{alertblock}{Observação:}
+			Dependendo do idioma mais de um termo da linguagem pode representar um determinado conectivo.
+		\end{alertblock}
+		\pause
+		\begin{itemize}
+			\item Em lógica existem três classes de conectivos bem conhecidos: Conjunção, Disjunção e Implicação\footnote{A bi-implicação pode na verdade ser visto com abreviatura.}.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Os conectivos na Língua Portuguesa}
+		\begin{table}[h]
+			\centering
+			\scriptsize
+			\begin{tabular}{ll}
+				\hline
+				\textbf{Conectivo}  & \textbf{Termo em Português} \\ \hline
+				\multirow{4}{*}{Conjunção}             & $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ e $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ mas $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ 
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ tamb\'em $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ 
+				&$\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ além disso $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ \hline
+				Disjun\c{c}\~ao             & $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ ou $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ \hline
+				\multirow{7}{*}{Implicação}
+				& Se $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$, ent\~ao $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ implica $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$    \\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ logo, $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ s\'o se $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ somente se $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$segue de $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \'e uma condi\c{c}\~ao suficiente para $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Basta $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ para $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\'e uma condi\c{c}\~ao necess\'aria para $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \\ \hline
+				\multirow{2}{*}{Bi-implicação}
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ se, e somente se $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \'e condição suficiente e necessária para $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ \hline
+			\end{tabular}
+			\caption{Termos em português que representamos conectivos.}
+			\label{tab:ConectivosPT-BR}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Exemplo de uso dos conectivos}
+		\begin{itemize}
+			\item[(a)] $3 < 5$ e para qualquer $x \in\mathbb{N}$ tem-se que $x < x + 1$.
+			\item[(b)] Há um estado brasileiro que não tem litoral ou O Brasil é penta campeão de futebol masculino.
+			\item[(c)] Se para todo $x \in \mathbb{R}$ sempre existem dois números $y_1, y_2 \in \mathbb{R}$ tal que $y_1 < x < y_2$, então Albert Einstein era francês.
+			\item[(d)] Para qualquer $x \in\mathbb{N}$ tem-se que $x < x + 1$ se, e somente se, para todo $x \in \mathbb{R}$ sempre existem dois números $y_1, y_2 \in \mathbb{R}$ tal que $y_1 < x < y_2$.
+			\item[(e)] A lua é feita de queijo ou $3 < 5$.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Sobre Quantificadores}
+		\begin{itemize}
+			\item São estrutura das linguagens responsáveis pela criação dos predicados.
+			\item Se dividem em duas categorias: {\color{red} universais} e {\color{red}existenciais}.
+			\item Os quantificadores estão ligados as variáveis em um predicado e determina quantos indivíduos do discurso ao serem aplicados a sentença do predicado devem gerar uma asserção ``verdadeira''. 
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Os Quantificadores na Língua Portuguesa}
+		\begin{table}[h]
+			\centering
+			%\scriptsize
+			\begin{tabular}{cl}
+				\hline
+				\textbf{Quantificador}  & \textbf{Termo em Portugu\^es} \\ \hline
+				\multirow{4}{*}{Universal}    & Todo(a)s $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Para todo(a) $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Para qualquer $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Para cada $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ \hline
+				\multirow{4}{*}{Existencial} & Existe $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Algum(a) $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Para algum $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				& Para um $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\ \hline
+			\end{tabular}
+			\caption{Termos em português que representamos quantificadores.}
+			\label{tab:QuantificadoresPT-BR}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos pensar em alguns exemplos que...
+		\begin{itemize}
+			\item Seja do universo das pessoas.
+			\item Seja do universo dos números.
+			\item Seja do universo dos programas.
+			\item Seja do universo dos livros.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{A Negação}
+		\begin{block}{Sobre a Negação:}
+			\
+			
+			Pode ser vista como um bloco construtor linguístico, que dado qualquer frase declarativa irá gerar a contraparte desta, no sentido que, a frase gerada irá ter um sentido (valor) lógica contrário a frase original.
+		\end{block}
+		\pause
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c}
+				\hline
+				\textbf{Termos em português}\\
+				\hline
+				Não $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \\
+				É falso que $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$\\
+				Não é verdade que $\underline{ \ \ \ \ \ \ \ \ \ \ \ \ }$ \\ \hline
+			\end{tabular}
+			\caption{Termos em português para designar a negação de uma proposição ou predicado.}
+			\label{tab:NegacaoPortugues}
+		\end{table}
+	\end{frame}
+	
 	\section{Lógica Simbólica}
-	\section{Um pouco de semântica}
+	
+	\begin{frame}{Sobre a Lógica Simbólica}
+		\begin{itemize}
+			\item Estudo focado nas estruturas gerais das sentenças em um discurso.
+			\item Não se limita a um único idioma.
+			\item Simplicidade na escrita e na visualização das propriedades dos ``sistemas lógicos''.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Um Exemplo de Simbologia}
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{lc}
+				\hline
+				\textbf{Objeto} & \textbf{Símbolo}\\
+				\hline
+				Conjunção & $\land$\\
+				Disjunção & $\lor$\\
+				Implicação & $\Rightarrow$\\
+				Bi-implicação & $\Leftrightarrow$\\
+				Negação & $\neg$\\
+				Quantificador universal & $\forall$\\
+				Quantificador existencial & $\exists$\\
+				\hline
+			\end{tabular}
+			\caption{Símbolos usados na Lógica simbólica.}
+			\label{tab:SimbolosLogicos}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Representação das Proposições e dos Predicados}
+		\begin{defi}[Representação das Proposições]\label{def:RepresentacaoProposicoes}
+			As proposições deve ser representadas usando letras maiúsculas do alfabeto latino.
+		\end{defi}
+		\pause
+		\begin{alertblock}{Sobre a Representação dos Predicados:}
+			\
+			
+			A representação de um predicado é um pouco mais complexa, primeiro entre parênteses deve-se inserir o simbolo do quantificador e as variáveis ligadas a esse quantificador, se necessário pode-se incluir também o universo a qual essas variáveis pertences. Em seguida, entre colchetes é inserido a representação de sentença que pode ou não conter as variáveis ligadas ao quantificador.
+		\end{alertblock}
+		\pause
+		\begin{remark}
+			\
+			
+			Vale ressaltar que os colchetes são símbolos usados para determinar o alcance do quantificador e de suas variáveis.
+		\end{remark}
+	\end{frame}
+
+	\begin{frame}{Exemplos (1)}
+			Representando as proposições ``2 > 5'', ``hoje é quarta feira'' e ``Alice é a professor de Introdução à Ciência da Computação'' respectivamente pela letras $P, Q$ e $R$ tem-se que:
+			\begin{itemize}
+				\item[(a)] $P \land Q$ representa a proposição: ``2 > 5 e hoje é quarta feira''.
+				\item[(b)] $P \lor P$ representa a proposição: ``2 > 5 ou 2 > 5''.
+				\item[(c)] $R \Rightarrow Q$ representa a proposição: ``Se Alice é a professor de Introdução à Ciência da Computação, então hoje é quarta feira''.
+				\item[(d)] $\neg R \Rightarrow  P \lor R$ representa a proposição: ``Se não é verdade que Alice é a professor de Introdução à Ciência da Computação, então 2 > 5 ou  Alice é a professor de introdução à Ciência da Computação''.
+				\item[(e)] $P \Leftrightarrow Q$ representa a proposição: ``2 > 5 se, e somente se hoje é quarta feira''.
+			\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Exemplos (2)}
+		\begin{example}
+			O predicado: ``Existe um $professor$ que a mãe se chama Fátima'', usando $p$ para representar a variável $professor$ e $MF$ para representar a asserção da mãe do professor se chamar Fátima, pode-se representar tal predicado como: $(\exists p)[MF(p)]$.
+		\end{example}
+		
+		\begin{example}
+			O predicado: ``Existe uma $pessoa$ tal que a terra é quadrada'', usando $p$ para representar a variável $pessoa$ e $T_P$ para representar a asserção da terra ser plana, pode-se representar tal predicado como: $(\exists p)[T_P]$.
+		\end{example}
+		
+		\begin{example}
+			O predicado: ``Existe uma tapa, para fechar toda panela'', pode ser representada da seguinte forma, $(\exists t)[(\forall p)[F(t, p)]]$, aqui $t$ representa a variável tampa e $p$ representa a variável panela, por fim, $F(t,p)$ pode-ser interpretado como a asserção de $t$ fechar $p$.
+		\end{example}
+	\end{frame}
+
+	\begin{frame}{Exemplo (3)}
+		\begin{example}
+			O predicado ``Para todo número real, a terra é um planeta''. Pode ser representado por $(\forall n \in \mathbb{R})[P]$ aqui $P$ representa a proposição ``a terra é um planeta''.
+		\end{example}
+		
+		\begin{example}
+			O predicado ``Todos os homens são mortais''. Pode ser representado por $(\forall h)[M(h)]$ aqui $h$ representa a variável homem e a asserção do homem ser mortal é representado por $M(h)$.
+		\end{example}
+		
+		\begin{example}
+			O predicado: ``Para todo $x$ inteiro e todo $y$ inteiro, existe um número inteiro $z$ tal que $x + y = z$''. Pode ser representado simbolicamente como, $(\forall x, y \in \mathbb{Z})[(\exists z \in \mathbb{Z})[x+ y = z]]$.
+		\end{example}
+	\end{frame}
+	
+	\section{Um Pouco de Sintaxe e Semântica Proposicional}
+	
+	\begin{frame}{O Básico}
+		\begin{defi}[Sintaxe]
+			Seja $\Sigma = \{\alpha_i \mid i \in \mathbb{N}, \alpha \in \text{Alfabeto latino} \} \cup  \{\alpha \mid \alpha \in \text{Alfabeto latino} \}$ o conjunto dos símbolos proposicionais, a linguagem proposicional $L_{Prop}$ é o menor conjunto gerado pelas seguintes regras:
+			\begin{itemize}
+				\item Todo $P \in \Sigma$ é tal que $P \in L_{Prop}$.
+				\item Se $P, Q \in L_{Prop}$, então $(P \land Q) \in L_{Prop}$.
+				\item Se $P, Q \in L_{Prop}$, então $(P \lor Q) \in L_{Prop}$.
+				\item Se $P, Q \in L_{Prop}$, então $(P \Rightarrow Q) \in L_{Prop}$.
+				\item Se $P \in L_{Prop}$, então $\neg(P) \in L_{Prop}$.
+			\end{itemize}
+		\end{defi}
+		\begin{defi}[Valoração]
+			Uma valoração $\rho$ é uma avaliação do valor lógico (ou verdade) de $\Sigma$ em um discurso.
+		\end{defi}
+		\pause
+		{\color{red}Observação}: Aqui $1$ representa o valor ``true'' e 0 representa o valor ``false''
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para o $\land$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \land Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$\land$ & $P = 0$ & $P = 1$ \\
+				\hline
+				$Q = 0$ & 0 &  0\\ 
+				$Q = 1$ & 0 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica do $\land$.}
+			\label{tab:And}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para o $\lor$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \lor Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$\lor$ & $P = 0$ & $P = 1$ \\
+				\hline
+				$Q = 0$ & 0 &  1\\ 
+				$Q = 1$ & 1 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica do $\lor$.}
+			\label{tab:Or}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para a $\Rightarrow$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \Rightarrow Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$\Rightarrow$ & $P = 0$ & $P = 1$ \\
+				\hline
+				$Q = 0$ & 1 &  0\\ 
+				$Q = 1$ & 1 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica da $\Rightarrow$.}
+			\label{tab:Implicacao}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para a $\neg$}
+		Dado $P \in \Sigma$ a interpretação de $\neg (P)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c}
+				\hline
+				$P$ & $\neg (P)$\\
+				\hline
+				$0$ & 1\\ 
+				$1$ &  0\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica da $\neg$.}
+			\label{tab:negacao}
+		\end{table}
+	\end{frame}
+
 \end{document}
