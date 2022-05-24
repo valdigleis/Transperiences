@@ -12,7 +12,7 @@
 
 \title{Introdução à Lógica Formal}
 \subtitle{CCMP0133 -- Aula 03}
-\date{\today}
+\date{23 de Maio de 2022}
 \author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
 \institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
 
@@ -328,96 +328,4 @@
 		\end{example}
 	\end{frame}
 	
-	\section{Um Pouco de Sintaxe e Semântica Proposicional}
-	
-	\begin{frame}{O Básico}
-		\begin{defi}[Sintaxe]
-			Seja $\Sigma = \{\alpha_i \mid i \in \mathbb{N}, \alpha \in \text{Alfabeto latino} \} \cup  \{\alpha \mid \alpha \in \text{Alfabeto latino} \}$ o conjunto dos símbolos proposicionais, a linguagem proposicional $L_{Prop}$ é o menor conjunto gerado pelas seguintes regras:
-			\begin{itemize}
-				\item Todo $P \in \Sigma$ é tal que $P \in L_{Prop}$.
-				\item Se $P, Q \in L_{Prop}$, então $(P \land Q) \in L_{Prop}$.
-				\item Se $P, Q \in L_{Prop}$, então $(P \lor Q) \in L_{Prop}$.
-				\item Se $P, Q \in L_{Prop}$, então $(P \Rightarrow Q) \in L_{Prop}$.
-				\item Se $P \in L_{Prop}$, então $\neg(P) \in L_{Prop}$.
-			\end{itemize}
-		\end{defi}
-		\begin{defi}[Valoração]
-			Uma valoração $\rho$ é uma avaliação do valor lógico (ou verdade) de $\Sigma$ em um discurso.
-		\end{defi}
-		\pause
-		{\color{red}Observação}: Aqui $1$ representa o valor ``true'' e 0 representa o valor ``false''
-	\end{frame}
-
-	\begin{frame}{Tabela verdade para o $\land$}
-		Dado $P, Q \in \Sigma$ a interpretação de $(P \land Q)$ é dada pela tabela verdade a seguir.
-		\begin{table}[h]
-			%\scriptsize
-			\centering
-			\begin{tabular}{c|c|c}
-				\hline
-				$\land$ & $P = 0$ & $P = 1$ \\
-				\hline
-				$Q = 0$ & 0 &  0\\ 
-				$Q = 1$ & 0 &  1\\
-				\hline
-			\end{tabular}
-			\caption{Tabela verdade para a semântica do $\land$.}
-			\label{tab:And}
-		\end{table}
-	\end{frame}
-
-	\begin{frame}{Tabela verdade para o $\lor$}
-		Dado $P, Q \in \Sigma$ a interpretação de $(P \lor Q)$ é dada pela tabela verdade a seguir.
-		\begin{table}[h]
-			%\scriptsize
-			\centering
-			\begin{tabular}{c|c|c}
-				\hline
-				$\lor$ & $P = 0$ & $P = 1$ \\
-				\hline
-				$Q = 0$ & 0 &  1\\ 
-				$Q = 1$ & 1 &  1\\
-				\hline
-			\end{tabular}
-			\caption{Tabela verdade para a semântica do $\lor$.}
-			\label{tab:Or}
-		\end{table}
-	\end{frame}
-
-	\begin{frame}{Tabela verdade para a $\Rightarrow$}
-		Dado $P, Q \in \Sigma$ a interpretação de $(P \Rightarrow Q)$ é dada pela tabela verdade a seguir.
-		\begin{table}[h]
-			%\scriptsize
-			\centering
-			\begin{tabular}{c|c|c}
-				\hline
-				$\Rightarrow$ & $P = 0$ & $P = 1$ \\
-				\hline
-				$Q = 0$ & 1 &  0\\ 
-				$Q = 1$ & 1 &  1\\
-				\hline
-			\end{tabular}
-			\caption{Tabela verdade para a semântica da $\Rightarrow$.}
-			\label{tab:Implicacao}
-		\end{table}
-	\end{frame}
-
-	\begin{frame}{Tabela verdade para a $\neg$}
-		Dado $P \in \Sigma$ a interpretação de $\neg (P)$ é dada pela tabela verdade a seguir.
-		\begin{table}[h]
-			%\scriptsize
-			\centering
-			\begin{tabular}{c|c}
-				\hline
-				$P$ & $\neg (P)$\\
-				\hline
-				$0$ & 1\\ 
-				$1$ &  0\\
-				\hline
-			\end{tabular}
-			\caption{Tabela verdade para a semântica da $\neg$.}
-			\label{tab:negacao}
-		\end{table}
-	\end{frame}
-
 \end{document}

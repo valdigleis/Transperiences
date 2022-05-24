@@ -1,0 +1,230 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Lógica Formal: Semântica e Leis De Morgan}
+\subtitle{CCMP0133 -- Aula 04}
+\date{\today}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+\newtheorem{remark}{Observação}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Um Pouco de Sintaxe e Semântica por Tabelas Verdade}
+	
+	\begin{frame}{O Básico}
+		\begin{defi}[Sintaxe]
+			Seja $\Sigma = \{\alpha_i \mid i \in \mathbb{N}, \alpha \in \text{Alfabeto latino} \} \cup  \{\alpha \mid \alpha \in \text{Alfabeto latino} \}$ o conjunto dos símbolos proposicionais, a linguagem proposicional $L_{Prop}$ é o menor conjunto gerado pelas seguintes regras:
+			\begin{itemize}
+				\item Todo $\alpha \in \Sigma$ é tal que $\alpha \in L_{Prop}$.
+				\item Se $\alpha, \beta \in L_{Prop}$, então $(\alpha \land \beta) \in L_{Prop}$.
+				\item Se $\alpha, \beta \in L_{Prop}$, então $(\alpha \lor \beta) \in L_{Prop}$.
+				\item Se $\alpha, \beta \in L_{Prop}$, então $(\alpha \Rightarrow \beta) \in L_{Prop}$.
+				\item Se $\alpha \in L_{Prop}$, então $(\neg \alpha) \in L_{Prop}$.
+			\end{itemize}
+		\end{defi}
+		\pause
+		{\color{red}Observação: }Os parênteses mais externos podem ser removidos sem qualquer problema de representação.
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para o $\land$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \land Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$P$ & $Q$ & $P \land Q$ \\
+				\hline
+				$0$ & 0 &  0\\ 
+				$Q = 1$ & 0 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica do $\land$.}
+			\label{tab:And}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para o $\lor$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \lor Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$\lor$ & $P = 0$ & $P = 1$ \\
+				\hline
+				$Q = 0$ & 0 &  1\\ 
+				$Q = 1$ & 1 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica do $\lor$.}
+			\label{tab:Or}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para a $\Rightarrow$}
+		Dado $P, Q \in \Sigma$ a interpretação de $(P \Rightarrow Q)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c|c}
+				\hline
+				$\Rightarrow$ & $P = 0$ & $P = 1$ \\
+				\hline
+				$Q = 0$ & 1 &  0\\ 
+				$Q = 1$ & 1 &  1\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica da $\Rightarrow$.}
+			\label{tab:Implicacao}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Tabela verdade para a $\neg$}
+		Dado $P \in \Sigma$ a interpretação de $\neg (P)$ é dada pela tabela verdade a seguir.
+		\begin{table}[h]
+			%\scriptsize
+			\centering
+			\begin{tabular}{c|c}
+				\hline
+				$P$ & $\neg (P)$\\
+				\hline
+				$0$ & 1\\ 
+				$1$ &  0\\
+				\hline
+			\end{tabular}
+			\caption{Tabela verdade para a semântica da $\neg$.}
+			\label{tab:negacao}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}{Bi-implicação como Relação de Equivalência}
+		\begin{defi}
+			Duas palavras $\alpha, \beta \in L_{Prop}$ são ditas equivalentes semanticamente, denotado por $\alpha \Leftrightarrow \beta$, sempre que suas tabelas verdades forem iguais em todos as suas linhas.
+		\end{defi}
+	\end{frame}
+
+	\section{Tabela verdade estendida}
+	
+	\begin{frame}{O Problema}
+		Como seria a construção das tabelas para as palavras:
+		\begin{itemize}
+			\item $\neg(Q \land S) \Rightarrow P$
+			\item $P \land (Q \lor R)$
+			\item $(P \Rightarrow (P \land \neg Q)) \lor S$
+			\item $((P_1 \land P_2) \land (P_3 \land (P_4 \land P_5))) \Rightarrow \neg (\neg P_3 \lor (P6 \land P_7))$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Definições Básicas (1)}
+		\begin{defi}
+			Seja $\alpha \in L_{Prop}$ o conjunto das sub-palavras de $\alpha$, denotado por $Sub_{\alpha}$, é o menor conjunto indutivamente gerado pelas seguintes regras:
+			\begin{itemize}
+				\item[R1.] Se $\alpha \in \Sigma_s \cup \{\bot\}$, então $Sub_\alpha = \{\alpha\}$.
+				\item[R2.] Se $\alpha = \neg \beta$ com $\beta \in L_{Prop}$, então $\neg \beta, \beta \in Sub_\alpha$ e todo $\alpha_i \in Sub_\beta$ é tal que $\alpha_i \in Sub_\alpha$.
+				\item[R3.] Se $\alpha = \beta \bullet \gamma$  com $\bullet \in \{\land, \lor, \Rightarrow\}$ e $\beta, \gamma \in L_{Prop}$, então $\beta \bullet \gamma, \beta, \gamma \in Sub_\alpha$ e todo $\alpha_i \in Sub_\beta \cup Sub_\gamma$ é tal que $\alpha_i \in Sub_\alpha$.
+			\end{itemize}
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplo}
+		Determine o conjunto das sub-palavras para as palavras
+		\begin{itemize}
+			\item $\neg(P \lor Q) \land P$.
+			\item $R \land (S \Rightarrow (Q \lor T))$.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Definições Básicas (2)}
+		\begin{defi}[Átomos]
+			Todo $\alpha \in L_{Prop}$ tal que $\alpha \in \Sigma_s \cup \{\bot\}$ é chamado de átomo.
+		\end{defi}
+		\pause
+		\begin{defi}[Conjunto dos átomos]
+			Seja $\alpha \in L_{Prop}$ o conjunto dos átomos de $\alpha$  corresponde ao conjunto $Ato_\alpha = Sub_\alpha \cap (\Sigma_s \cup \{\bot\})$. 
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplo}
+		Dado a palavra $P \Rightarrow (\neg Q \Rightarrow (P \lor T))$ tem-se:
+		\begin{itemize}
+			\item[(a)] As sub-palavras de $P \Rightarrow (\neg Q \Rightarrow (P \lor T))$ formam o conjunto:\pause
+			$$\{P, Q, T, \neg Q, P \lor T, \neg Q \Rightarrow (P \lor T), P \Rightarrow (\neg Q \Rightarrow (P \lor T))\}$$
+			\item[(b)] Os átomos de $P \Rightarrow (\neg Q \Rightarrow (P \lor T))$ formam o conjunto:\pause
+			$$\{P, Q, T\}$$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Algoritmo para Construir Tabelas Estendidas}
+		Dado uma palavra $\alpha \in L_{Prop} - \Sigma$ execute os seguintes passos:
+		\begin{enumerate}
+			\item Se $\alpha$ possui $n$ átomos então nas $n$ primeiras colunas distribua os átomos de $\alpha$.
+			\item Escolha uma ordem das palavras em $(Sub_\alpha - Ato_\alpha)$ e para cada $\beta \in (Sub_\alpha - Ato_\alpha)$ construa uma nova coluna na tabela e rotule a mesma por $\beta$.
+			\item Preencha a tabela.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Exemplo}
+		Construa as tabelas estendidas para as tabelas:
+		\begin{itemize}
+			\item $\neg(Q \land S) \Rightarrow P$
+			\item $P \land (Q \lor R)$
+			\item $(P \Rightarrow (P \land \neg Q)) \lor S$
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Pontos Sobre as Tabelas Verdade}
+		\begin{itemize}
+			\item Crescimento exponencial das linhas com respeito ao número de símbolos proposicionais.
+			\item Crescimento linear nas colunas referente ao número de sub-palavras.
+			\item Dado o crescimento exponencial se torna rapidamente um algoritmo intratável.
+			\item Não exibe facilmente as propriedades algébricas.
+		\end{itemize}
+	\end{frame}
+
+	\section{Leis De Morgan e Identidades Notáveis}
+	
+	\begin{frame}{Leis De Morgan}
+		\begin{defi}[Negação da Conjunção]
+			Seja $\alpha$ e $\beta$ duas palavras quaisquer de $L_{Prop}$, tem-se que a negação da conjunção de $\alpha$ e $\beta$ é semanticamente equivalente a disjunção das negações de $\alpha$ e $\beta$, em símbolos tem-se que:
+			$$\neg(\alpha \land \beta) \Leftrightarrow \neg \alpha \lor \neg \beta$$
+		\end{defi}
+		\begin{defi}[Negação da Disjunção]
+			Seja $\alpha$ e $\beta$ duas palavras quaisquer de $L_{Prop}$, tem-se que a negação da disjunção de $\alpha$ e $\beta$ é semanticamente equivalente a conjunção das negações de $\alpha$ e $\beta$, em símbolos tem-se que:
+			$$\neg(\alpha \lor \beta) \Leftrightarrow \neg \alpha \land \neg \beta$$
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Identidades Notáveis}
+		Dado $\alpha, \beta \in L_{Prop}$
+		\begin{itemize}
+			\item $\alpha \Rightarrow \beta \Leftrightarrow \neg \alpha \lor \beta$.
+			\item $\neg \neg \alpha \Leftrightarrow \alpha$.
+			\item $\alpha \land \beta \Leftrightarrow \beta \land \alpha$.
+			\item $\alpha \lor \beta \Leftrightarrow \beta \lor \alpha$.
+			\item $\neg \alpha \lor \alpha \Leftrightarrow \top$.
+			\item $\neg \alpha \land \alpha \Leftrightarrow \bot$.
+		\end{itemize}
+		{\color{red}Observação}: os símbolos $\top$ e $\bot$ representam respectivamente a tautologia e o absurdo (ou contradição).
+	\end{frame}
+
+\end{document}
