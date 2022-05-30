@@ -1,0 +1,147 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Métodos de Demonstração (Provando Implicações)}
+\subtitle{CCMP0133 -- Aula 05}
+\date{30 de maio de 2022}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+\newtheorem{remark}{Observação}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Introdução}
+	
+	\begin{frame}{Perguntas Básicas}
+		\begin{itemize}
+			\item  O que é uma demonstração?\pause
+			\begin{itemize}
+				\item[$\diamondsuit$] É a maneira de mostrar que uma asserção é validada, utilizando para isso argumentos formais e {\color{red}corretos}.
+			\end{itemize}
+			\item O que são métodos de demonstração?\pause
+			\begin{itemize}
+				\item[$\diamondsuit$] São estratégias de raciocínio empregadas para realizar as demonstração, todas elas vindas diretamente da lógica.
+			\end{itemize}
+			\item Cientistas da Computação precisam saber provar teoremas e similares? 
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Entidades das Demonstrações}
+		Os objetos de interesse durante uma demonstração são:
+		\begin{itemize}
+			\item Asserções:
+			\begin{itemize}
+				\item[$\diamondsuit$] É sentença que se quer demonstrar, podendo ser escrita na linguagem portuguesa ou usando a linguagem da lógica simbólica.
+			\end{itemize}
+			\item O(s) método(s) para a demonstração:
+			\begin{itemize}
+				\item[$\diamondsuit$] São as técnicas empregadas durante a demonstração.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Tipos de asserções}
+		Os tipos das asserções são:
+		\begin{itemize}
+			\item {\color{red}Implicativa}.
+			\item Universal.
+			\item Existencial.
+		\end{itemize}
+		Os métodos de demonstração são:
+		\begin{itemize}
+			\item {\color{red}Prova Direta (PD)}.
+			\item {\color{red}Prova Por Contra Positiva (PCP)}.
+			\item Prova por Redução ao absurdo (RAA).
+			\item Prova de Generalização.
+			\item Prova de Existência $\rightarrow$ (Prova de Unicidade).
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Tipos de asserções}
+		Os tipos das asserções são:
+		\begin{itemize}
+			\item {\color{red}Implicativa} --- Asserção da forma: Se $\alpha$, então $\beta$.
+			\item Universal.
+			\item Existencial.
+		\end{itemize}
+		Os métodos de demonstração são:
+		\begin{itemize}
+			\item {\color{red}Prova Direta (PD)}.
+			\item {\color{red}Prova Por Contra Positiva (PCP)}.
+			\item Prova por Redução ao absurdo (RAA).
+			\item Prova de Generalização.
+			\item Prova de Existência $\rightarrow$ (Prova de Unicidade).
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Representação das demonstrações}
+		As provas podem ser representadas (escritas) nas formas de:
+		\begin{itemize}
+			\item Texto formal (mais comum no meio acadêmico).
+			\item Diagrama de blocos (popular para o ensino).
+			\item Tabuleiro de demonstração (usando no ensino).
+			\item Linguagem de especificação formal (em geral usando algum assistente de provas).
+		\end{itemize}
+	\end{frame}
+
+	\section{Prova Direta}
+	
+	\begin{frame}{A formalização}
+		\begin{defi}[Prova Direta --- PD]
+			\
+			
+			Dado uma asserção da forma: ``se $\alpha$, então $\beta$''\footnote{$\alpha \Rightarrow \beta$ na linguagem da lógica.}. A metodologia de prova direta para tal asserção consiste em supor $\alpha$ como sendo verdade e a partir disto deduzir $\beta$.
+		\end{defi}
+		\pause
+		\begin{alertblock}{Observação:}
+			Em uma asserção implicativa $\alpha \Rightarrow \beta$ tem-se que $\alpha$ é chamado antecedente e $\beta$ é chamado o consequente.
+		\end{alertblock}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos praticar?
+		\begin{itemize}
+			\item[(1)]  Se $n$ é múltiplo de 4, então também é múltiplo de 2.
+			\item[(2)] Dado $x, y \in \mathbb{Z}$. Se $x$ é par e $y$  é impar, então $x + y$ é impar.
+			\item[(3)] Dado $X \subseteq Z$ e $Y$ e $Z$ são disjuntos. Se $x \in X$, então $x \notin Y$.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Prova por Contraposição}
+	
+	\begin{frame}{A formalização}
+		\begin{defi}[Prova por Contra Positiva --- PCP]
+			\
+			
+			Dado uma asserção da forma: ``se $\alpha$, então $\beta$''. A metodologia de prova por contra positiva para tal asserção consiste em demonstrar usando PD a asserção ``se não $\beta$, então não $\alpha$'', em seguida concluir (ou enunciar) que a veracidade de ``se $\alpha$, então $\beta$'' segue da veracidade de ``se não $\beta$, então não $\alpha$''.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos praticar?
+		\begin{itemize}
+			\item[(1)]  Se $xy$ é impar, então $x$ é impar e $y$ é impar.
+			\item[(2)] Dado $a > 0$. Se $a^2 \leq 1$, então $a \leq 1$.
+			\item[(3)] Dado $X \subseteq Z$ e $Y$ e $Z$ são disjuntos. Se $x \in X$, então $x \notin Y$.
+		\end{itemize}
+	\end{frame}
+
+\end{document}
