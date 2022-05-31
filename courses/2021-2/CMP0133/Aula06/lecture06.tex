@@ -1,0 +1,66 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Método Reductio ad absurdum (Redução ao Absurdo)}
+\subtitle{CCMP0133 -- Aula 06}
+\date{30 de maio de 2022}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+\newtheorem{remark}{Observação}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Introdução}
+	
+	\begin{frame}{Perguntas Básicas}
+		\begin{itemize}
+			\item  O que é um Absurdo?\pause
+			\item  O que seria reduzir ao absurdo?\pause
+			\item  Como funcionaria uma prova que reduz ao absurdo? 
+		\end{itemize}
+	\end{frame}
+
+	\section{A Definição}
+	
+	\begin{frame}{Formalizando}
+		\begin{defi}[Prova por Redução ao Absurdo --- RAA]
+			\
+			
+			A metodologia para uma demonstração por redução ao absurdo de uma asserção $\alpha$, consiste em supor que não $\alpha$ é uma hipótese verdadeira, então deduzir um absurdo (ou contradição). Em seguida concluir que dado que a partir de não $\alpha$ foi produzido um absurdo pode-se afirma que $\alpha$ é verdadeiro.
+		\end{defi}
+	\end{frame}
+
+	\section{Seção Prática}
+
+	\begin{frame}{Exemplos}
+		Escolham...
+		\begin{itemize}
+			\item Não existe um inteiro $n$ que seja o maior inteiro.
+			\item Se $3n + 2$ é impar, então $n$ é impar.
+			\item Se $n^2$ é par, então $n$ é par.
+			\item Não existe um $n$ que seja par e impar ao mesmo tempo.
+			\item Dado $a,b \in \mathbb{Z}$. Se $a$ divide $b$, então $ab$ divide $b^2$.
+			\item Dado $n = ab$ sendo $a, b \in \mathbb{Z}_+^*$. Prove que $a \leq \sqrt{n}$ ou $b \leq \sqrt{n}$.
+			\item Não existe um programa $P$ jogador de xadrez que sempre vença.
+		\end{itemize}
+	\end{frame}
+
+\end{document}
