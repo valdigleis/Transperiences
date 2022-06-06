@@ -57,8 +57,56 @@
 		\end{itemize}
 	\end{frame}
 
-
 	\section{Provas de Existência}
+	
+	\begin{frame}{O básico e a formalização}
+		\begin{itemize}
+			\item Qual a natureza das asserções que são existenciais?\pause
+			\begin{itemize}
+				\item São predicados!
+				\item Possuem o quantificador $\exists$ (existe) em sua estrutura.
+			\end{itemize} 
+		\end{itemize}
+		\pause
+		\begin{defi}[Prova de existência (PE)]
+			\
+			
+			Para provar uma asserção da forma ``$(\exists x)[P(x)]$'', em que $P(x)$ é uma asserção sobre a variável x. Deve-se exibir um elemento específico ``$a$'' pertencente ao universo do discurso, e mostrar que a asserção $P(x)$ é verdadeira quando $x$ é instanciado como sendo exatamente o elemento $a$, ou seja, deve-se mostrar que $P(a)$ é verdadeira.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos praticar, escolham...
+		\begin{itemize}
+			\item[(a)] $(\exists n \in \mathbb{N}$[O dobro do quadrado de $x$ é exatamente 32]
+			\item[(b)] $(\exists  x, y \in \mathbb{Z})$[$x > 0$ e $y + x = -2x$].
+			\item[(c)] $(\exists X \in \wp(A))[(\forall Y \in \wp(A))[X \cup Y = Y]]$.
+		\end{itemize}
+	\end{frame}
+	
 	\section{Provas de Unicidade}
+	
+	\begin{frame}{O básico e a formalização}
+		\begin{itemize}
+			\item O que seria uma prova de unicidade?\pause
+			\begin{itemize}
+				\item Consiste de uma prova existencial e que um \textbf{único} elemento do discurso satisfaz a propriedade ``estudada''.
+			\end{itemize} 
+		\end{itemize}
+		\pause
+		\begin{defi}[Prova de unicidade (PU)]\label{def:ProvaUnicidade}
+			
+			Uma prova de unicidade consiste em provar uma asserção da forma ``$(\exists x)[P(x) \land (\forall y)[P(y) \Rightarrow x = y]]$'', em que $P$ é uma asserção sobre os elementos do discurso. Para tal primeiro deve-se demonstrar que a asserção ``$(\exists x)[P(x)]$'' é verdadeira, e depois prova que a generalização $(\forall y)[P(y) \Rightarrow x = y]$ também é verdadeira.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos praticar, escolham...
+		\begin{itemize}
+			\item[(a)] $(\exists! A \in \wp(U))[(\forall B \in \wp(U))[A \cap B = B]]$.
+			\item[(b)] $(\exists! n \in \mathbb{N})[(\forall x)[n + x = 0]]$.
+			\item[(c)] $(\forall x \in \mathbb{Z})[(\exists! y \in \mathbb{Z})[x + y = 0]]$.
+		\end{itemize}
+	\end{frame}
 	
 \end{document}
