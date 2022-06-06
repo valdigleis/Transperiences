@@ -1,0 +1,64 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Tema usado
+\usetheme{metropolis}
+
+\title{Métodos para Provas Universais e Existenciais.}
+\subtitle{CCMP0133 -- Aula 07}
+\date{06 de junho de 2022}
+\author{Prof. Valdigleis S. Costa\\\url{valdigleis.costa@univasf.edu.br}}
+\institute{Universidade Federal do Vale do São Francisco\\Colegiado de Ciência da Computação\\\textit{Campus} Salgueiro-PE}
+
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{col}{Corolário}
+\newtheorem{remark}{Observação}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}{Roteiro}
+		\tableofcontents
+	\end{frame}
+
+	\section{Provas de Generalização}
+	
+	\begin{frame}{O básico e a formalização}
+		\begin{itemize}
+			\item O que é uma propriedade generalista ou universal?\pause
+			\item Qual a natureza das asserções que são generalizações?\pause
+			\begin{itemize}
+				\item São predicados!
+				\item Possuem o quantificador $\forall$ (para todo) em sua estrutura.
+			\end{itemize} 
+		\end{itemize}
+		\pause
+		\begin{defi}[Prova de Generalizações --- PG]
+			\
+			
+			Para provar uma asserção da forma, ``$(\forall x)[P(x)]$'', em que $P(x)$ é uma asserção acerca da variável $x$. Deve-se assumir que a variável $x$ assume como valor um objeto qualquer no universo do discurso de que trata a  generalização, em seguida, provar que a asserção $P(x)$ é verdadeira, usando as propriedades disponível de forma genérica para os objetos do universo do discurso.
+		\end{defi}
+	\end{frame}
+
+	\begin{frame}{Exemplos}
+		Vamos praticar, escolham...
+		\begin{itemize}
+			\item[(a)] $(\forall x \in \{4n \mid n \in \mathbb{N} \})$[$x$ é par]
+			\item[(b)] $(\forall X, Y \subseteq \mathbb{U})$[se $X \neq \emptyset$, então $(X \cup Y) \neq \emptyset$].
+			\item[(c)] Demonstre que para todo $n \in \mathbb{Z}$, se $5n$ é ímpar, então $n$ é ímpar.
+			\item[(d)] Prove que para todo $A, B, C  \subseteq \mathbb{U}$. Se $A$ e $(B - C)$ são disjuntos, então $(A \cap B) \subseteq C$.
+		\end{itemize}
+	\end{frame}
+
+
+	\section{Provas de Existência}
+	\section{Provas de Unicidade}
+	
+\end{document}
